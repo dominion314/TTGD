@@ -1,3 +1,5 @@
+#Use the split method to remove SJW from a sentence ONLY if it is not the first word of the sentence.
+
 def removeSJW(mystring):
     string=mystring.split(" ")
     if string[0]=="SJW":
