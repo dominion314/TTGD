@@ -1,8 +1,8 @@
 ---
 vpcs:
-  platform-nx-lle:
+  devops-nx-prd:
     routingMode: GLOBAL
     autoCreateSubnets: false
     psaNetwork:
-      platform-nx-lle-dbaas-psa-01: 
+      devops-nx-prd-mongo-psa-01: 
         network: 10.124.0.0/20
