@@ -2,10 +2,10 @@
 from cerberus import Validator
 import yaml
 
-with open('PSA_PR_Format.yml') as f:
+with open('PSA_Customer_Request.yml') as f:
     DATA = yaml.load(f, Loader=yaml.FullLoader)
 
-with open('PSA_Schema.yaml') as f:
+with open('PSA_Parameter_Template.yaml') as f:
     SCHEMA = yaml.load(f, Loader=yaml.FullLoader)
 
 V = Validator()
@@ -18,5 +18,3 @@ else:
     print('Fail')
     ERR = V.errors
     print(ERR)
-
-#1. 
