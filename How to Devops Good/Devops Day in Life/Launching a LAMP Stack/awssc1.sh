@@ -60,7 +60,7 @@ echo "AMI ID: "$imageId
 existingEc2Instance=$(aws ec2 describe-instances \
 --region $region \
 --profile $profile \
---filters "Name=tag:Name,Values=mompopcafeserver" "Name=instance-state-name,Values=running" \
+--filters "Name=tag:Name,Values=thattechguydom" "Name=instance-state-name,Values=running" \
 | grep InstanceId | cut -d '"' -f4)
 if [[ "$existingEc2Instance" != "" ]]; then
   echo
@@ -91,10 +91,10 @@ if [[ "$existingEc2Instance" != "" ]]; then
   sleep 10 #give it 10 seconds before trying to delete the SG this instance used.
 fi
 
-#check for existing mompopcafeSG security Group
+#check for existing thattechguydomSG security Group
 existingMpSg=$(aws ec2 describe-security-groups \
 --region $region \
---query "SecurityGroups[?contains(GroupName, 'mompopcafeSG')]" \
+--query "SecurityGroups[?contains(GroupName, 'thattechguydomSG')]" \
 --profile $profile | grep GroupId | cut -d '"' -f4)
 
 if [[ "$existingMpSg" != "" ]]; then
@@ -126,10 +126,10 @@ fi
 # CREATE a security group and capture the name of it
 echo
 echo "Creating a new security group..."
-securityGroup=$(aws ec2 create-security-group --group-name "mompopcafeSG" \
---description "mompopcafeSG" \
+securityGroup=$(aws ec2 create-security-group --group-name "thattechguydomSG" \
+--description "thattechguydomSG" \
 --region $region \
---group-name "mompopcafeSG" \
+--group-name "thattechguydomSG" \
 --vpc-id $vpc --profile $profile | grep GroupId | cut -d '"' -f4 )
 echo "Security Group: "$securityGroup
 
@@ -162,7 +162,7 @@ instanceDetails=$(aws ec2 run-instances \
 --region us-east-1 \
 --subnet-id $subnetId \
 --security-group-ids $securityGroup \
---tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=mompopcafeserver}]' \
+--tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=thattechguydom}]' \
 --associate-public-ip-address \
 --profile $profile \
 --user-data file://create-lamp-instance-userdata.txt )
