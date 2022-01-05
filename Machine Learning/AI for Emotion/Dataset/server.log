@@ -1,0 +1,19 @@
+2020-07-02 08:24:13.317659: I tensorflow_serving/model_servers/server.cc:86] Building single TensorFlow model file config:  model_name: emotion_model model_base_path: /model1
+2020-07-02 08:24:13.317970: I tensorflow_serving/model_servers/server_core.cc:464] Adding/updating models.
+2020-07-02 08:24:13.318086: I tensorflow_serving/model_servers/server_core.cc:575]  (Re-)adding model: emotion_model
+2020-07-02 08:24:13.418407: I tensorflow_serving/core/basic_manager.cc:739] Successfully reserved resources to load servable {name: emotion_model version: 1}
+2020-07-02 08:24:13.418628: I tensorflow_serving/core/loader_harness.cc:66] Approving load for servable version {name: emotion_model version: 1}
+2020-07-02 08:24:13.418715: I tensorflow_serving/core/loader_harness.cc:74] Loading servable version {name: emotion_model version: 1}
+2020-07-02 08:24:13.418825: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /model1/1
+2020-07-02 08:24:13.438508: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2020-07-02 08:24:13.438698: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:295] Reading SavedModel debug info (if present) from: /model1/1
+2020-07-02 08:24:13.438867: I external/org_tensorflow/tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2020-07-02 08:24:13.501096: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:234] Restoring SavedModel bundle.
+2020-07-02 08:24:13.652234: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:183] Running initialization op on SavedModel bundle at path: /model1/1
+2020-07-02 08:24:13.732763: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:364] SavedModel load for tags { serve }; Status: success: OK. Took 313922 microseconds.
+2020-07-02 08:24:13.742873: I tensorflow_serving/servables/tensorflow/saved_model_warmup.cc:105] No warmup data file found at /model1/1/assets.extra/tf_serving_warmup_requests
+2020-07-02 08:24:13.743269: I tensorflow_serving/core/loader_harness.cc:87] Successfully loaded servable version {name: emotion_model version: 1}
+2020-07-02 08:24:13.745343: I tensorflow_serving/model_servers/server.cc:355] Running gRPC ModelServer at 0.0.0.0:8500 ...
+[warn] getaddrinfo: address family for nodename not supported
+2020-07-02 08:24:13.746327: I tensorflow_serving/model_servers/server.cc:375] Exporting HTTP/REST API at:localhost:4000 ...
+[evhttp_server.cc : 238] NET_LOG: Entering the event loop ...
