@@ -10,6 +10,9 @@ AI can outperform pre-programmed machines. It can learn as it discovers what its
 
 
 
+
+
+
 Bellman Equation
 
 Richard Ernest Bellman was a mathematician who developed his equation in 1953. 
@@ -20,17 +23,6 @@ Bellman Equation = V(s) = maxa(R(s,a) + yV(s'))
 
 Explanation = The expected returned Value(V) at the current state(s) is equal to the maximum value of any possible action(a) for the expected reward(R) for taking that action(a) at state(s)...plus the discount factor(gamma -yV) multipled by the value of the next state(s').
 
-
-Equation for Q Values = Q(s,a) = r + γ(max(Q(s’,a’))
-
-Explanation = The "Q" values for a given state(s) and action(a) should represent the current reward(r) plus the maximum discounted future reward(y)
-            expected according to our own table for the next state(s) we would end in.
-
-
-
-Simply - This defines the curent rewards from future rewards depending on our current state and the potential rewards of the future state. 
-Why is it important - Data can be updated by using these accurate measures into tables of future rewards allowing for agents to make better decisions.
-
 Check out the bellman_equation.py file to see how this is done in FrozenLake. WHen you run the code it basically gives you a 4 x 16 matrix that contains the values of each individual cell based on the perceived values in the script. These values could be transposed onto a visual grid to help the agent navigate an environment and its obstacles. 
 
 Using Tensorflow you can apply this Q Table to a neural network. However, what you make up for in flexibility you lose in stability. 
@@ -39,19 +31,73 @@ Using Tensorflow you can apply this Q Table to a neural network. However, what y
 
 
 
+
 The Plan
+
+Make a map for the AI. Create an environment where we can place these values. 
+
+
+
+
+
 
 
 Markov Decision Process
 
+Deterministic Search - If agent decides to go up, with 100% probability it will go up
+Non deterministic Search - Agent could have 80% chance it goes up, 10% it goes left, 10% it goes right. 
 
-Policy vs Plan
+This is a more realistic model of the real world. This allows for randomness in the logic for the agent to better deal with the reinforcement learning process. 
+
+Markov Process - A stochastic process has the markov property if the conditional probability distribution of future statues of the process (conditional on both past and present states) depends only upon the present state, not on the sequence of events that preceded it. A process with this property is called a Markov Process. 
+
+Simply, a future state will only depend on where you are now, not how you got here. Markov doesnt care what caused the agents position, only the future position and present state.  
+
+Markov Decision Process - Provides a mathematical framework for modeling decision making in situations where outcomes are partly random and partly under the control of a decision maker.
+
+Simply, the MDP is the framework an agent will use to navigate the environment its in. 
+
+Equation - V(s) = maxa(R(s,a) + yV(s'))
+
+Explanation - The expected return values(V) at thae current state(s) equals the maximum value of any possible action(a) for the expected reward for taking action(a) at state(s) plus the discount factor(y - gamma) multiplied by the value of the next state(s).
 
 
-Living Penalty
+
+
 
 
 Q-Learning Inuition
 
+Q considers the value of action instead of the value of state. If you ave 4 actions, Q is a metric to compare the values. 
+
+Equation for Deterministic Q Values = Q(s,a) = r + γ(max(Q(s’,a’))
+
+Explanation = The "Q" values for a given state(s) and action(a) should represent the current reward(r) plus the maximum discounted future reward(y)
+            expected according to our own table  for the next state(s) we would end in.
+
+Simply - This defines the curent rewards from future rewards depending on our current state and the potential rewards of the future state. 
+Why is it important - Data can be updated by using these accurate measures into tables of future rewards allowing for agents to make better decisions.
+
+
+
+
+
 
 Temporal Difference
+
+Heart and soul of Q learning. It allows the agent to calculate these values.
+
+
+
+
+
+http://ai.berkeley.edu/reinforcement.html
+
+
+
+
+Deep Q Learning
+
+Instead of basic states, we create an x and y axis. Now each state can be equal to a grid coordinate. We can feed this state into a neural network which can produce our Q values. We're taking the states of environment and understanding the actions to get the Q value. 
+
+
