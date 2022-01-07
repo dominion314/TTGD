@@ -1,4 +1,4 @@
-Reinforcement Learning 
+<h1>Reinforcement Learning</h1> 
 
 What is it? An agent will perform an action in an evnironment and the state will change each time leading to a reward or no reward. By doing so
 the agent learns the environment and better navigates. The performance of the agent is rewarded dependent on its actions. If the agent compeletes
@@ -8,12 +8,7 @@ based on positive or negative returns. In terms of AI, think of reinforcement le
 Reinforcement algorythms controll all the degrees of freedom along with the rewards for the actions of your AI. Through this learning process
 AI can outperform pre-programmed machines. It can learn as it discovers what its goals and rewards are. 
 
-
-
-
-
-
-Bellman Equation
+<h1>Bellman Equation</h1>
 
 Richard Ernest Bellman was a mathematician who developed his equation in 1953. 
 
@@ -27,22 +22,11 @@ Check out the bellman_equation.py file to see how this is done in FrozenLake. WH
 
 Using Tensorflow you can apply this Q Table to a neural network. However, what you make up for in flexibility you lose in stability. 
 
-
-
-
-
-
 The Plan
 
 Make a map for the AI. Create an environment where we can place these values. 
 
-
-
-
-
-
-
-Markov Decision Process
+<h1>Markov Decision Process</h1>
 
 Deterministic Search - If agent decides to go up, with 100% probability it will go up
 Non deterministic Search - Agent could have 80% chance it goes up, 10% it goes left, 10% it goes right. 
@@ -61,12 +45,7 @@ Equation - V(s) = maxa(R(s,a) + yV(s'))
 
 Explanation - The expected return values(V) at thae current state(s) equals the maximum value of any possible action(a) for the expected reward for taking action(a) at state(s) plus the discount factor(y - gamma) multiplied by the value of the next state(s).
 
-
-
-
-
-
-Q-Learning Inuition
+<h1>Q-Learning Inuition</h1>
 
 Q considers the value of action instead of the value of state. If you ave 4 actions, Q is a metric to compare the values. 
 
@@ -78,26 +57,61 @@ Explanation = The "Q" values for a given state(s) and action(a) should represent
 Simply - This defines the curent rewards from future rewards depending on our current state and the potential rewards of the future state. 
 Why is it important - Data can be updated by using these accurate measures into tables of future rewards allowing for agents to make better decisions.
 
-
-
-
-
-
-Temporal Difference
+<h1>Temporal Difference</h1>
 
 Heart and soul of Q learning. It allows the agent to calculate these values.
 
-
-
-
-
 http://ai.berkeley.edu/reinforcement.html
 
+Checkout gridworld.py to run a program that details q learning.
 
-
-
-Deep Q Learning
+<h1>Deep Q Learning</h1>
 
 Instead of basic states, we create an x and y axis. Now each state can be equal to a grid coordinate. We can feed this state into a neural network which can produce our Q values. We're taking the states of environment and understanding the actions to get the Q value. 
 
 
+![](2022-01-07-08-40-30.png)
+
+
+![](2022-01-07-08-44-28.png)
+
+<h1>Deep Q Acting</h1>
+
+Now that our agent knows the path it has to act upon the data. We pass it through a softmax function, which helps select the best path. This is how we feed in a reinforcement learning function into an environment.
+
+![](2022-01-07-08-46-26.png)
+
+https://awjuliani.medium.com/simple-reinforcement-learning-with-tensorflow-part-4-deep-q-networks-and-beyond-8438a3e2b8df
+
+This article goes more into convolutions which deals with your agent "Seeing" its environment.
+
+![](2022-01-07-08-53-24.png)
+
+
+
+
+<h1>Experience Replay</h1>  In the case of the self driving car. The question is what is and how often do we trigger our neural link? Everytime the car movies, calculates an error, or takes a new state - we experience issues whenever we repeatedely complete the same inputs or values into the network the car will learn one thing very well but wont learn to adjust into random or unknown states.
+
+Once we have many of the same states, they become interdependent which means our car only learns to drive on the line.
+
+IN order to avoid this we have the car take a uniformly random sample of the enivronment, essentially making all paths equal temporarily. 
+
+Each expereicen is characterized by the state it took, the states its in, the action, then reward. THis is how it breaks the bias of experience replay. ER gives you many leaning experiences because the acrued data is kept in batches.
+
+![](2022-01-07-12-50-20.png)
+
+![](2022-01-07-12-46-19.png)
+
+
+<h1>ACtion Selection Policies</h1>
+
+Softmax or different action selection policies select Q values based metrics of exploration or exploitation.
+
+Sometimes the agent may find in exploration that it finds efficient but will remain bias without a new reward. This could get it out of the local maxim its stuck in.
+We uses ASPs to continue exploiting good values, but you also want it to keep learning. 
+
+![](2022-01-07-13-02-58.png)
+
+Epsilon Greedy, Epsilon Soft, Softmax
+
+http://tokic.com/222/tokicm/publikationen/papers/AdaptiveEpsilonGreedyExploration.pdf
