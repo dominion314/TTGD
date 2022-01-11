@@ -115,3 +115,5 @@ We uses ASPs to continue exploiting good values, but you also want it to keep le
 Epsilon Greedy, Epsilon Soft, Softmax
 
 http://tokic.com/222/tokicm/publikationen/papers/AdaptiveEpsilonGreedyExploration.pdf
+
+https://www.superdatascience.com/pages/artificial-intelligence
