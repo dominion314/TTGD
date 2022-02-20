@@ -6,7 +6,7 @@ import numpy as numpy
 import random
 import os #Load and save the brain
 import torch #Pytorch for nueral network, better than tensor.
-import torch.nn #deep neural network and reutnr output for q values of diff action when reciving the three sensors data. most essential
+import torch.nn as nn #deep neural network and reutnr output for q values of diff action when reciving the three sensors data. most essential
 import torch.nn.functional as f#shortcut to functional package that contains function for NN as f. We will be using ooberloss?
 import torch.optim as optim#optimizier for stochasstics
 import torch.autograd as autograd
@@ -32,7 +32,7 @@ class Network(nn.Module): #In this class we will use inheritance to inerit all t
 
 # Implementing Experience Replay
 
-class ReplayMemory(object):
+class ReplayMemory(object): 
     
     def __init__(self, capacity):
         self.capacity = capacity
